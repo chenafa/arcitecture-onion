@@ -14,7 +14,7 @@ namespace OA.Test.Unit.Persistence
             using var context = new ApplicationDbContext();
             var customer = new Customer();
             context.Customers.Add(customer);
-            Assert.AreEqual(EntityState.Added, context.Entry(customer).State);
+            Assert.That(context.Entry(customer).State, Is.EqualTo(EntityState.Added));
         }
     }
 }

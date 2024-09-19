@@ -6,10 +6,18 @@ using OA.Persistence.Seeds;
 
 namespace OA.Persistence
 {
-    public class IdentityContext : IdentityDbContext<ApplicationUser>
+    public class IdentityContext(DbContextOptions<IdentityContext> options)
+        : IdentityDbContext<ApplicationUser>(options)
     {
-        public IdentityContext(DbContextOptions<IdentityContext> options) : base(options)
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseSqlServer("DataSource=app.db");
+            }
+
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

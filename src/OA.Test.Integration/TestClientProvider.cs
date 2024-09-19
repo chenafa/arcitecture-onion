@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using System.IO;
-using System.Net.Http;
 
 namespace OA.Test.Integration
 {
@@ -13,11 +11,9 @@ namespace OA.Test.Integration
         {
             var server = new TestServer(new WebHostBuilder()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>());
+                .UseStartup<Program>());
 
             Client = server.CreateClient();
-
-
         }
     }
 }

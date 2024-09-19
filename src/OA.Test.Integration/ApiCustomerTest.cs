@@ -1,7 +1,5 @@
 using NUnit.Framework;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace OA.Test.Integration
 {
@@ -18,7 +16,7 @@ namespace OA.Test.Integration
 
             response.EnsureSuccessStatusCode();
 
-            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }
