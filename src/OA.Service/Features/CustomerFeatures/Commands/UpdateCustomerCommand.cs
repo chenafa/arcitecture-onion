@@ -19,16 +19,12 @@ public class UpdateCustomerCommand : IRequest<int>
     public string Country { get; set; }
     public string Phone { get; set; }
     public string Fax { get; set; }
-    public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, int>
+    public class UpdateCustomerCommandHandler(IApplicationDbContext context)
+        : IRequestHandler<UpdateCustomerCommand, int>
     {
-        private readonly IApplicationDbContext _context;
-        public UpdateCustomerCommandHandler(IApplicationDbContext context)
-        {
-            _context = context;
-        }
         public async Task<int> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var cust = _context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
+            var cust = context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
 
             if (cust == null)
             {
@@ -38,8 +34,8 @@ public class UpdateCustomerCommand : IRequest<int>
             {
                 cust.CustomerName = request.CustomerName;
                 cust.ContactName = request.ContactName;
-                _context.Customers.Update(cust);
-                await _context.SaveChangesAsync();
+                context.Customers.Update(cust);
+                await context.SaveChangesAsync();
                 return cust.Id;
             }
         }
