@@ -1,7 +1,6 @@
-﻿namespace OA.Service.Contract
+namespace OA.Service.Contract;
+
+public interface IAuthenticatedUserService
 {
-    public interface IAuthenticatedUserService
-    {
-        string UserId { get; }
-    }
+    string UserId { get; }
 }

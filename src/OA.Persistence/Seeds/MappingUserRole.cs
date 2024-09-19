@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using OA.Domain.Enum;
 using System.Collections.Generic;
 
-namespace OA.Persistence.Seeds
+namespace OA.Persistence.Seeds;
+
+public static class MappingUserRole
 {
-    public static class MappingUserRole
+    public static List<IdentityUserRole<string>> IdentityUserRoleList()
     {
-        public static List<IdentityUserRole<string>> IdentityUserRoleList()
-        {
-            return new List<IdentityUserRole<string>>()
+        return new List<IdentityUserRole<string>>()
             {
                 new IdentityUserRole<string>
                 {
@@ -36,6 +36,5 @@ namespace OA.Persistence.Seeds
                     UserId = Constants.SuperAdminUser
                 }
             };
-        }
     }
 }

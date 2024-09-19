@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 
-namespace OA.Service.Contract
+namespace OA.Service.Contract;
+
+public interface IDateTimeService
 {
-    public interface IDateTimeService
-    {
-        DateTime NowUtc { get; }
-    }
+    DateTime NowUtc { get; }
 }

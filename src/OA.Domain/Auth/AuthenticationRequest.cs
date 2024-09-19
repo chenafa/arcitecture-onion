@@ -1,8 +1,7 @@
-﻿namespace OA.Domain.Auth
+namespace OA.Domain.Auth;
+
+public class AuthenticationRequest
 {
-    public class AuthenticationRequest
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+    public string Email { get; set; }
+    public string Password { get; set; }
 }

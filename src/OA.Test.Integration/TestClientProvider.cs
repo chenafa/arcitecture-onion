@@ -1,19 +1,18 @@
-﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 
-namespace OA.Test.Integration
+namespace OA.Test.Integration;
+
+public class TestClientProvider
 {
-    public class TestClientProvider
+    public HttpClient Client { get; private set; }
+
+    public TestClientProvider()
     {
-        public HttpClient Client { get; private set; }
+        var server = new TestServer(new WebHostBuilder()
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<Program>());
 
-        public TestClientProvider()
-        {
-            var server = new TestServer(new WebHostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Program>());
-
-            Client = server.CreateClient();
-        }
+        Client = server.CreateClient();
     }
 }

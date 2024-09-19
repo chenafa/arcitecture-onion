@@ -1,7 +1,6 @@
-﻿namespace OA.Domain.Enum
+namespace OA.Domain.Enum;
+
+public enum FeatureManagement
 {
-    public enum FeatureManagement
-    {
-        EnableEmailService
-    }
+    EnableEmailService
 }

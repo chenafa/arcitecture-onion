@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace OA.Domain.Entities
+namespace OA.Domain.Entities;
+
+public class Supplier : BaseEntity
 {
-    public class Supplier : BaseEntity
-    {
-        public string SupplierName { get; set; }
-        public List<Product> Products { get; set; }
-    }
+    public string SupplierName { get; set; }
+    public List<Product> Products { get; set; }
 }
