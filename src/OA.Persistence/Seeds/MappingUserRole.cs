@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity;
 using OA.Domain.Enum;
-using System.Collections.Generic;
 
 namespace OA.Persistence.Seeds;
 

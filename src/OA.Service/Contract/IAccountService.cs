@@ -1,6 +1,5 @@
 using OA.Domain.Auth;
 using OA.Domain.Common;
-using System.Threading.Tasks;
 
 namespace OA.Service.Contract;
 

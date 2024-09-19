@@ -1,5 +1,4 @@
 using OA.Domain.Settings;
-using System.Threading.Tasks;
 
 namespace OA.Service.Contract;
 

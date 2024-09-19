@@ -6,7 +6,6 @@ using MimeKit;
 using OA.Domain.Settings;
 using OA.Service.Contract;
 using OA.Service.Exceptions;
-using System.Threading.Tasks;
 
 namespace OA.Service.Implementation;
 

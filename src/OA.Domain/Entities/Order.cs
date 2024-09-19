@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace OA.Domain.Entities;
 
 public class Order : BaseEntity

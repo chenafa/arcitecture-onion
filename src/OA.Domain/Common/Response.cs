@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OA.Domain.Common;
 
 public class Response<T>

@@ -1,5 +1,3 @@
-using System;
-
 namespace OA.Service.Exceptions;
 
 public class DeleteFailureException(string name, object key, string message)

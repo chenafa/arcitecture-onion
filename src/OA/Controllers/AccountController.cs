@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using OA.Domain.Auth;
 using OA.Service.Contract;
-using System.Threading.Tasks;
 
 namespace OA.Controllers;
 

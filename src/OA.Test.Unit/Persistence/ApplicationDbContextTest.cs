@@ -8,7 +8,7 @@ namespace OA.Test.Unit.Persistence;
 public class ApplicationDbContextTest
 {
     [Test]
-    public void CanInsertCustomerIntoDatabasee()
+    public void CanInsertCustomerIntoDatabase()
     {
 
         using var context = new ApplicationDbContext();

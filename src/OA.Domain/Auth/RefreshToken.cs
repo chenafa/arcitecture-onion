@@ -1,5 +1,3 @@
-using System;
-
 namespace OA.Domain.Auth;
 
 public class RefreshToken

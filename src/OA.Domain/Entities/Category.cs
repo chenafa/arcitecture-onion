@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OA.Domain.Entities;
 
 public class Category : BaseEntity

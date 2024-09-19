@@ -2,31 +2,21 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OA.Service.Exceptions;
-using System;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace OA.Service.Middleware;
 
-public class CustomExceptionMiddleware
+public class CustomExceptionMiddleware(RequestDelegate next, ILogger<CustomExceptionMiddleware> logger)
 {
-    private readonly RequestDelegate _next;
-    private readonly ILogger<CustomExceptionMiddleware> _logger;
-    public CustomExceptionMiddleware(RequestDelegate next, ILogger<CustomExceptionMiddleware> logger)
-    {
-        _next = next;
-        _logger = logger;
-    }
-
     public async Task Invoke(HttpContext context)
     {
         try
         {
-            await _next(context);
+            await next(context);
         }
         catch (Exception exceptionObj)
         {
-            await HandleExceptionAsync(context, exceptionObj, _logger);
+            await HandleExceptionAsync(context, exceptionObj, logger);
         }
     }
 

@@ -1,8 +1,6 @@
 using MediatR;
 using OA.Domain.Entities;
 using OA.Persistence;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OA.Service.Features.CustomerFeatures.Commands;
 

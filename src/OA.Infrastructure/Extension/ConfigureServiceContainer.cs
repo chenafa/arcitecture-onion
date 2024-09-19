@@ -10,11 +10,6 @@ using OA.Infrastructure.Mapping;
 using OA.Persistence;
 using OA.Service.Contract;
 using OA.Service.Implementation;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
-using System.Reflection;
 
 namespace OA.Infrastructure.Extension;
 

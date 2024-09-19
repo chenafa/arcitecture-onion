@@ -1,10 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using OA.Service.Features.CustomerFeatures.Commands;
 using OA.Service.Features.CustomerFeatures.Queries;
-using System.Threading.Tasks;
 
 namespace OA.Controllers;
 

@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using OA.Domain.Entities;
-using System.Threading.Tasks;
 
 namespace OA.Persistence;
 

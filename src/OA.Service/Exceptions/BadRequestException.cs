@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.Serialization;
 
 namespace OA.Service.Exceptions;

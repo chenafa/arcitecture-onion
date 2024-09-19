@@ -1,8 +1,5 @@
 using MediatR;
 using OA.Persistence;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OA.Service.Features.CustomerFeatures.Commands;
 

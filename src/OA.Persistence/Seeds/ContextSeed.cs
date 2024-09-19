@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OA.Domain.Auth;
-using System.Collections.Generic;
 
 namespace OA.Persistence.Seeds;
 

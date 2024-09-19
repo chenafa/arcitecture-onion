@@ -1,9 +1,6 @@
 using MediatR;
 using OA.Domain.Entities;
 using OA.Persistence;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace OA.Service.Features.CustomerFeatures.Queries;
 
