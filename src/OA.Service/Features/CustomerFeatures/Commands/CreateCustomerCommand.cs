@@ -21,9 +21,19 @@ public class CreateCustomerCommand : IRequest<int>
     {
         public async Task<int> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var customer = new Customer();
-            customer.CustomerName = request.CustomerName;
-            customer.ContactName = request.ContactName;
+            var customer = new Customer
+            {
+                CustomerName = request.CustomerName,
+                ContactName = request.ContactName,
+                Address = request.Address,
+                City = request.City,
+                Region = request.Region,
+                PostalCode = request.PostalCode,
+                Country = request.Country,
+                Phone = request.Phone,
+                Fax = request.Fax,
+                ContactTitle = request.ContactTitle
+            };
 
             context.Customers.Add(customer);
             await context.SaveChangesAsync();

@@ -25,10 +25,10 @@ public class MailService(IOptions<MailSettings> mailSettings, ILogger<MailServic
             builder.HtmlBody = mailRequest.Body;
             email.Body = builder.ToMessageBody();
             using var smtp = new SmtpClient();
-            smtp.Connect(mailSettings.Value.SmtpHost, mailSettings.Value.SmtpPort, SecureSocketOptions.StartTls);
-            smtp.Authenticate(mailSettings.Value.SmtpUser, mailSettings.Value.SmtpPass);
+            await smtp.ConnectAsync(mailSettings.Value.SmtpHost, mailSettings.Value.SmtpPort, SecureSocketOptions.StartTls);
+            await smtp.AuthenticateAsync(mailSettings.Value.SmtpUser, mailSettings.Value.SmtpPass);
             await smtp.SendAsync(email);
-            smtp.Disconnect(true);
+            await smtp.DisconnectAsync(true);
 
         }
         catch (System.Exception ex)

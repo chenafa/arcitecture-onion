@@ -31,6 +31,15 @@ public class UpdateCustomerCommand : IRequest<int>
             {
                 cust.CustomerName = request.CustomerName;
                 cust.ContactName = request.ContactName;
+                cust.ContactTitle = request.ContactTitle;
+                cust.Address = request.Address;
+                cust.City = request.City;
+                cust.Region = request.Region;
+                cust.PostalCode = request.PostalCode;
+                cust.Country = request.Country;
+                cust.Fax= request.Fax;
+                cust.Phone= request.Phone;
+
                 context.Customers.Update(cust);
                 await context.SaveChangesAsync();
                 return cust.Id;

@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using OA.Domain.Entities;
 using OA.Persistence;
 
@@ -12,9 +13,7 @@ public class GetCustomerByIdQuery : IRequest<Customer>
     {
         public async Task<Customer> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            var customer = context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
-            if (customer == null) return null;
-            return customer;
+            return await context.Customers.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken: cancellationToken);
         }
     }
 }

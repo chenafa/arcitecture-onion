@@ -101,12 +101,7 @@ public class AccountService(
         var userClaims = await userManager.GetClaimsAsync(user);
         var roles = await userManager.GetRolesAsync(user);
 
-        var roleClaims = new List<Claim>();
-
-        for (int i = 0; i < roles.Count; i++)
-        {
-            roleClaims.Add(new Claim("roles", roles[i]));
-        }
+        var roleClaims = roles.Select(t => new Claim("roles", t)).ToList();
 
         string ipAddress = IpHelper.GetIpAddress();
 
@@ -147,8 +142,8 @@ public class AccountService(
         var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
         var route = "api/account/confirm-email/";
-        var _enpointUri = new Uri(string.Concat($"{origin}/", route));
-        var verificationUri = QueryHelpers.AddQueryString(_enpointUri.ToString(), "userId", user.Id);
+        var endpointUri = new Uri(string.Concat($"{origin}/", route));
+        var verificationUri = QueryHelpers.AddQueryString(endpointUri.ToString(), "userId", user.Id);
         verificationUri = QueryHelpers.AddQueryString(verificationUri, "code", code);
         //Email Service Call Here
         return verificationUri;
@@ -188,8 +183,6 @@ public class AccountService(
         if (account == null) return;
 
         var code = await userManager.GeneratePasswordResetTokenAsync(account);
-        var route = "api/account/reset-password/";
-        var _enpointUri = new Uri(string.Concat($"{origin}/", route));
         var emailRequest = new MailRequest()
         {
             Body = $"You reset token is - {code}",

@@ -12,7 +12,7 @@ public class DeleteCustomerByIdCommand : IRequest<int>
     {
         public async Task<int> Handle(DeleteCustomerByIdCommand request, CancellationToken cancellationToken)
         {
-            var customer = await context.Customers.Where(a => a.Id == request.Id).FirstOrDefaultAsync();
+            var customer = await context.Customers.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken: cancellationToken);
             if (customer == null) return default;
             context.Customers.Remove(customer);
             await context.SaveChangesAsync();

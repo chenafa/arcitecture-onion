@@ -13,11 +13,7 @@ public class GetAllCustomerQuery : IRequest<IEnumerable<Customer>>
     {
         public async Task<IEnumerable<Customer>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
         {
-            var customerList = await context.Customers.ToListAsync();
-            if (customerList == null)
-            {
-                return null;
-            }
+            var customerList = await context.Customers.ToListAsync(cancellationToken: cancellationToken);
             return customerList.AsReadOnly();
         }
     }
