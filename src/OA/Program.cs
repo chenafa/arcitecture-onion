@@ -88,16 +88,8 @@ app.ConfigureSwagger();
 app.MapControllers();
 
 // Run the application
-try
-{
-    app.Run();
+app.Run();
 
-}
-catch (Exception e)
-{
-    Console.WriteLine(e);
-    throw;
-}
 
 public partial class Program
 {
