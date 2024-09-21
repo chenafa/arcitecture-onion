@@ -1,36 +1,26 @@
-﻿using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using FluentValidation.Results;
 
-namespace OA.Service.Exceptions
+namespace OA.Service.Exceptions;
+
+public class ValidationException() : Exception("One or more validation failures have occurred.")
 {
-    public class ValidationException : Exception
+    public ValidationException(List<ValidationFailure> failures)
+        : this()
     {
-        public ValidationException()
-            : base("One or more validation failures have occurred.")
+        var propertyNames = failures
+            .Select(e => e.PropertyName)
+            .Distinct();
+
+        foreach (var propertyName in propertyNames)
         {
-            Failures = new Dictionary<string, string[]>();
+            var propertyFailures = failures
+                .Where(e => e.PropertyName == propertyName)
+                .Select(e => e.ErrorMessage)
+                .ToArray();
+
+            Failures.Add(propertyName, propertyFailures);
         }
-
-        public ValidationException(List<ValidationFailure> failures)
-            : this()
-        {
-            var propertyNames = failures
-                .Select(e => e.PropertyName)
-                .Distinct();
-
-            foreach (var propertyName in propertyNames)
-            {
-                var propertyFailures = failures
-                    .Where(e => e.PropertyName == propertyName)
-                    .Select(e => e.ErrorMessage)
-                    .ToArray();
-
-                Failures.Add(propertyName, propertyFailures);
-            }
-        }
-
-        public IDictionary<string, string[]> Failures { get; }
     }
+
+    public IDictionary<string, string[]> Failures { get; } = new Dictionary<string, string[]>();
 }

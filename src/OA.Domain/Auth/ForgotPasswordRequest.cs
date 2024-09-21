@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
-namespace OA.Domain.Auth
+namespace OA.Domain.Auth;
+
+public class ForgotPasswordRequest
 {
-    public class ForgotPasswordRequest
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
-    }
+    [Required]
+    [EmailAddress]
+    public string Email { get; set; }
 }

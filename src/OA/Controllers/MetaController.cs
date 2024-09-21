@@ -1,24 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OA.Controllers
+namespace OA.Controllers;
+
+public class MetaController : ControllerBase
 {
-    public class MetaController : ControllerBase
+    [HttpGet("/info")]
+    public ActionResult<string> Info()
     {
-        [HttpGet("/info")]
-        public ActionResult<string> Info()
-        {
-            var assembly = typeof(Startup).Assembly;
+        var assembly = typeof(Program).Assembly;
 
-            var lastUpdate = System.IO.File.GetLastWriteTime(assembly.Location);
-            var version = FileVersionInfo.GetVersionInfo(assembly.Location).ProductVersion;
+        var lastUpdate = System.IO.File.GetLastWriteTime(assembly.Location);
+        var version = FileVersionInfo.GetVersionInfo(assembly.Location).ProductVersion;
 
-            return Ok($"Version: {version}, Last Updated: {lastUpdate}");
-        }
+        return Ok($"Version: {version}, Last Updated: {lastUpdate}");
     }
 }

@@ -1,28 +1,19 @@
-﻿using MediatR;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using OA.Domain.Entities;
 using OA.Persistence;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace OA.Service.Features.CustomerFeatures.Queries
+namespace OA.Service.Features.CustomerFeatures.Queries;
+
+public class GetCustomerByIdQuery : IRequest<Customer>
 {
-    public class GetCustomerByIdQuery : IRequest<Customer>
+    public int Id { get; set; }
+    public class GetCustomerByIdQueryHandler(IApplicationDbContext context)
+        : IRequestHandler<GetCustomerByIdQuery, Customer>
     {
-        public int Id { get; set; }
-        public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, Customer>
+        public async Task<Customer> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            private readonly IApplicationDbContext _context;
-            public GetCustomerByIdQueryHandler(IApplicationDbContext context)
-            {
-                _context = context;
-            }
-            public async Task<Customer> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
-            {
-                var customer = _context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
-                if (customer == null) return null;
-                return customer;
-            }
+            return await context.Customers.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken: cancellationToken);
         }
     }
 }
