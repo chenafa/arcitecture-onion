@@ -32,7 +32,7 @@ public static class DependencyInjection
         if (configuration.GetValue<bool>("UseInMemoryDatabase"))
         {
             services.AddDbContext<IdentityContext>(options =>
-                options.UseInMemoryDatabase("IdentityDb"));
+                options.UseInMemoryDatabase(nameof(IdentityContext)));
         }
         else
         {
@@ -41,6 +41,7 @@ public static class DependencyInjection
                 configuration.GetConnectionString("IdentityConnection"),
                 b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
         }
+
         services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<IdentityContext>()
             .AddDefaultTokenProviders();
         #region Services

@@ -10,19 +10,13 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 
-// Build the configuration
-var configRoot = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json")
-    .Build();
-
 // Bind AppSettings
 var appSettings = new AppSettings();
 builder.Configuration.Bind(appSettings);
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddDbContext(builder.Configuration, configRoot);
+builder.Services.AddDbContext(builder.Configuration);
 builder.Services.AddIdentityService(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScopedServices();
@@ -94,7 +88,16 @@ app.ConfigureSwagger();
 app.MapControllers();
 
 // Run the application
-app.Run();
+try
+{
+    app.Run();
+
+}
+catch (Exception e)
+{
+    Console.WriteLine(e);
+    throw;
+}
 
 public partial class Program
 {
