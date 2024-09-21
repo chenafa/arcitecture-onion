@@ -5,7 +5,7 @@
 
 ----
 
-![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET/badge.svg)
+![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET%20Core/badge.svg)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=bugs)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=code_smells)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
