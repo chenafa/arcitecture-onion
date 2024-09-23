@@ -15,13 +15,20 @@ namespace OA.Infrastructure.Extension;
 
 public static class ConfigureServiceContainer
 {
-    public static void AddDbContext(this IServiceCollection serviceCollection,
-         IConfiguration configuration, IConfigurationRoot configRoot)
+    public static void AddDbContext(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"]
-            , b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+        if (configuration.GetValue<bool>("UseInMemoryDatabase"))
+        {
+            serviceCollection.AddDbContext<ApplicationDbContext>(options =>
+                options.UseInMemoryDatabase(nameof(ApplicationDbContext)));
+        }
+        else
+        {
+            serviceCollection.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("OnionArchConn")
+                    , b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+        }
 
     }
 
