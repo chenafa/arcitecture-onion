@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using OA.Persistence;
 
 namespace OA.Service.Features.CustomerFeatures.Commands;
@@ -16,34 +17,33 @@ public class UpdateCustomerCommand : IRequest<int>
     public string Country { get; set; }
     public string Phone { get; set; }
     public string Fax { get; set; }
-    public class UpdateCustomerCommandHandler(IApplicationDbContext context)
-        : IRequestHandler<UpdateCustomerCommand, int>
+
+}
+
+public class UpdateCustomerCommandHandler(IApplicationDbContext context)
+    : IRequestHandler<UpdateCustomerCommand, int>
+{
+    public async Task<int> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
     {
-        public async Task<int> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
-        {
-            var cust = context.Customers.Where(a => a.Id == request.Id).FirstOrDefault();
+        var customer = await context.Customers.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken: cancellationToken);
 
-            if (cust == null)
-            {
-                return default;
-            }
-            else
-            {
-                cust.CustomerName = request.CustomerName;
-                cust.ContactName = request.ContactName;
-                cust.ContactTitle = request.ContactTitle;
-                cust.Address = request.Address;
-                cust.City = request.City;
-                cust.Region = request.Region;
-                cust.PostalCode = request.PostalCode;
-                cust.Country = request.Country;
-                cust.Fax= request.Fax;
-                cust.Phone= request.Phone;
+        if (customer == null)
+            return default;
 
-                context.Customers.Update(cust);
-                await context.SaveChangesAsync();
-                return cust.Id;
-            }
-        }
+        customer.CustomerName = request.CustomerName;
+        customer.ContactName = request.ContactName;
+        customer.ContactTitle = request.ContactTitle;
+        customer.Address = request.Address;
+        customer.City = request.City;
+        customer.Region = request.Region;
+        customer.PostalCode = request.PostalCode;
+        customer.Country = request.Country;
+        customer.Fax = request.Fax;
+        customer.Phone = request.Phone;
+
+        context.Customers.Update(customer);
+        await context.SaveChangesAsync();
+
+        return customer.Id;
     }
 }
