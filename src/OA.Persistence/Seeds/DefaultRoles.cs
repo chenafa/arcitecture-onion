@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using OA.Domain.Enum;
-using System.Collections.Generic;
 
-namespace OA.Persistence.Seeds
+namespace OA.Persistence.Seeds;
+
+
+public static class DefaultRoles
 {
-
-    public static class DefaultRoles
+    public static List<IdentityRole> IdentityRoleList()
     {
-        public static List<IdentityRole> IdentityRoleList()
-        {
-            return new List<IdentityRole>()
+        return new List<IdentityRole>()
             {
                 new IdentityRole
                 {
@@ -36,6 +35,5 @@ namespace OA.Persistence.Seeds
                     NormalizedName = Roles.Basic.ToString()
                 }
             };
-        }
     }
 }

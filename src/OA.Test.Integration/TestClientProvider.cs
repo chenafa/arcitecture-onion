@@ -1,23 +1,29 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using System.IO;
-using System.Net.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace OA.Test.Integration
+namespace OA.Test.Integration;
+
+public class TestClientProvider : IDisposable
 {
-    public class TestClientProvider
+    private readonly WebApplicationFactory<Program> _factory;
+    public HttpClient Client { get; }
+
+    public TestClientProvider()
     {
-        public HttpClient Client { get; private set; }
+        // Initialize WebApplicationFactory with the Program class
+        _factory = new WebApplicationFactory<Program>()
+            .WithWebHostBuilder(builder =>
+            {
+                // Set the environment to Test
+                builder.UseEnvironment("Test");
+            });
 
-        public TestClientProvider()
-        {
-            var server = new TestServer(new WebHostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>());
+        Client = _factory.CreateClient();
+    }
 
-            Client = server.CreateClient();
-
-
-        }
+    public void Dispose()
+    {
+        Client.Dispose();
+        _factory.Dispose();
     }
 }

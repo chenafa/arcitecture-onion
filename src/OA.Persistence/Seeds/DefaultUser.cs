@@ -1,14 +1,13 @@
-﻿using OA.Domain.Auth;
+using OA.Domain.Auth;
 using OA.Domain.Enum;
-using System.Collections.Generic;
 
-namespace OA.Persistence.Seeds
+namespace OA.Persistence.Seeds;
+
+public static class DefaultUser
 {
-    public static class DefaultUser
+    public static List<ApplicationUser> IdentityBasicUserList()
     {
-        public static List<ApplicationUser> IdentityBasicUserList()
-        {
-            return new List<ApplicationUser>()
+        return new List<ApplicationUser>()
             {
                 new ApplicationUser
                 {
@@ -39,6 +38,5 @@ namespace OA.Persistence.Seeds
                     NormalizedUserName="BASICUSER"
                 },
             };
-        }
     }
 }
