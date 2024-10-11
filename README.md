@@ -1,19 +1,19 @@
-[![Visual Studio Marketplace version](https://img.shields.io/badge/-OnionArchitecture-%23e2165e.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
-[![Visual Studio Marketplace downloads](https://vsmarketplacebadge.apphb.com/installs/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
-[![Visual Studio Marketplace ratings](https://vsmarketplacebadge.apphb.com/rating/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
-[![Visual Studio Marketplace version](https://vsmarketplacebadge.apphb.com/version/AmitNaik.OnionArchitecture.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
+[![Visual Studio Marketplace version](https://vsmarketplacebadges.dev/version/AmitNaik.OnionArchitecture.svg?&colorB=magenta)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
+[![Visual Studio Marketplace downloads](https://vsmarketplacebadges.dev/downloads/AmitNaik.OnionArchitecture.svg?&colorB=blue)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
+[![Visual Studio Marketplace ratings](https://vsmarketplacebadges.dev/rating/AmitNaik.OnionArchitecture.svg?&colorB=darkgreen)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
 ----
 
 ![.NET Core](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/workflows/.NET%20Core%20Desktop/badge.svg)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=bugs)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
+
+<!-- [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=bugs)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=code_smells)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=alert_status)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=security_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Amitpnk/Onion-architecture-ASP.NET-Core/blob/develop/LICENSE)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Amitpnk_Onion-architecture-ASP.NET-Core&metric=security_rating)](https://sonarcloud.io/dashboard?id=Amitpnk_Onion-architecture-ASP.NET-Core) -->
 ----
 
 
